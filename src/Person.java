@@ -1,4 +1,5 @@
 import java.util.Calendar;
+import java.util.Optional;
 
 class Person {
     private String name;
@@ -28,9 +29,7 @@ class Person {
         return gender;
     }
 
-    String getName() {
-        return name;
+    Optional<String> getName() {
+        return Optional.ofNullable(name);
     }
 }
-
-
