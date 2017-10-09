@@ -26,12 +26,13 @@ public class Main {
         int militaryAgeEnding = 27;
         militaryMan = listOfPerson.stream()
                 .filter(personM -> (personM.getAge() >= militaryAgeBeginning &&
-                                    personM.getAge() <= militaryAgeEnding &&
-                                    personM.getGender() == Gender.Male))
+                        personM.getAge() <= militaryAgeEnding &&
+                        personM.getGender() == Gender.Male))
                 .collect(Collectors.toList());
         System.out.print("List of recruit: ");
-        for (Person personM : militaryMan) {
-            System.out.print(personM.getName() + ", ");
+        for (Person personM : militaryMan){
+            personM.getName().ifPresent(System.out::print);
+            System.out.print(", ");
         }
         System.out.println();
 
@@ -52,7 +53,8 @@ public class Main {
                 .collect(Collectors.toList());
         System.out.print("People born in 1990: ");
         for (Person personY : listOfYear) {
-            System.out.print(personY.getName() + ", ");
+            personY.getName().ifPresent(System.out::print);
+            System.out.print(", ");
         }
     }
 }
